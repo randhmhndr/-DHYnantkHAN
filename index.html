@@ -390,6 +390,14 @@
                             <div style="color: #b2b2b2;">Nama</div>
                             <div><div id="namaTamu"></div>Nama Tamu</div>
                         </div>
+                        <script>
+                            // Ambil parameter "to"
+                            const params = new URLSearchParams(window.location.search);
+                            const to = params.get("to");
+
+                            // Masukkan ke div
+                            document.getElementById("namaTamu").textContent = to ?? "Tamu Tidak Dikenal";
+                        </script>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </div>
                     <button onclick="if (!window.__cfRLUnblockHandlers) return false; closeModal(qrModal)" type="button" class="btn btn-close" data-cf-modified-1d0956117226f1176b9b7c67-=""><svg xmlns="http://www.w3.org/2000/svg" height="42px" width="42px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"></path>
