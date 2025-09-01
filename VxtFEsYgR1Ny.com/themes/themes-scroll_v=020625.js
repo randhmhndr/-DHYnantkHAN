@@ -175,15 +175,23 @@ var initCoreInvitation = function initCoreInvitation() {
 
   // copy rekening
   var accountNumber = document.getElementsByClassName('account-number');
-  for (var _i3 = 0; _i3 < accountNumber.length; _i3++) {
-    if (accountNumber[_i3].innerHTML) {
+  for (var i = 0; i < accountNumber.length; i++) {
+    if (accountNumber[i].innerText) {
+      // Ambil angka saja dari text
+      var numberOnly = accountNumber[i].innerText.match(/\d+/g)[0];
+
       if (lang == 'id') {
-        accountNumber[_i3].insertAdjacentHTML("afterend", "<button type='button' class='btn btn-sm btn-primary mt-2 mb-2 animate__animated animate__fadeInUp animate__slow delay-5' data-text='".concat(accountNumber[_i3].innerText, "' onclick='copyText(event)' style='font-family: sans-serif; border-radius: 4px'>Salin Rekening</button>"));
+        accountNumber[i].insertAdjacentHTML("afterend",
+          "<button type='button' class='btn btn-sm btn-primary mt-2 mb-2 animate__animated animate__fadeInUp animate__slow delay-5' data-text='" + numberOnly + "' onclick='copyText(event)' style='font-family: sans-serif; border-radius: 4px'>Salin Rekening</button>"
+        );
       } else {
-        accountNumber[_i3].insertAdjacentHTML("afterend", "<button type='button' class='btn btn-sm btn-primary mt-2 mb-2 animate__animated animate__fadeInUp animate__slow delay-5' data-text='".concat(accountNumber[_i3].innerText, "' onclick='copyText(event)' style='font-family: sans-serif; border-radius: 4px'>Copy to Clipboard</button>"));
+        accountNumber[i].insertAdjacentHTML("afterend",
+          "<button type='button' class='btn btn-sm btn-primary mt-2 mb-2 animate__animated animate__fadeInUp animate__slow delay-5' data-text='" + numberOnly + "' onclick='copyText(event)' style='font-family: sans-serif; border-radius: 4px'>Copy to Clipboard</button>"
+        );
       }
     }
   }
+
 
   // copy alamat
   var addressText = document.getElementsByClassName('copy-address');
